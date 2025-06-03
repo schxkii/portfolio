@@ -20,11 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         // Enlarge cursor on hover over interactive elements
-        const interactiveElements = document.querySelectorAll('a, button, .profile-image, .project');
+        const interactiveElements = document.querySelectorAll('a, button, .profile-image');
         
         interactiveElements.forEach(element => {
             element.addEventListener('mouseenter', () => {
-                cursorFlare.style.transform = 'translate(-50%, -50%) scale(2)'; /* Increased scale */
+                cursorFlare.style.transform = 'translate(-50%, -50%) scale(2)';
                 cursorFlare.style.background = 'radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.6) 30%, transparent 70%)';
             });
             
@@ -34,6 +34,31 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    
+    // Scroll indicator functionality
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    const projectsSection = document.querySelector('.projects-section');
+    
+    // Hide scroll indicator when user scrolls down
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        
+        // Hide indicator after scrolling 20% of viewport height
+        if (scrollPosition > windowHeight * 0.2) {
+            scrollIndicator.classList.add('hidden');
+        } else {
+            scrollIndicator.classList.remove('hidden');
+        }
+    });
+    
+    // Make scroll indicator clickable to scroll to projects
+    scrollIndicator.addEventListener('click', () => {
+        projectsSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
     
     // Intersection Observer for scroll animations
     const observerOptions = {
