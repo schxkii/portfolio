@@ -1,0 +1,477 @@
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    cursor: none !important; /* Hide default cursor everywhere */
+}
+
+/* Custom cursor flare */
+.cursor-flare {
+    position: fixed;
+    width: 40px; /* Increased from 20px */
+    height: 40px; /* Increased from 20px */
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.3) 30%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: all 0.1s ease;
+}
+
+/* Ensure no cursor shows on interactive elements */
+a, button, .profile-image, .project, .social-links p {
+    cursor: none !important;
+}
+
+/* Background flares */
+.background-flares {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.flare {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 40%, transparent 70%);
+    animation: float 6s ease-in-out infinite;
+}
+
+.flare-1 {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 80%;
+    animation-delay: 0s;
+    animation-duration: 8s;
+}
+
+.flare-2 {
+    width: 150px;
+    height: 150px;
+    top: 60%;
+    left: 10%;
+    animation-delay: 2s;
+    animation-duration: 10s;
+}
+
+.flare-3 {
+    width: 100px;
+    height: 100px;
+    top: 30%;
+    left: 20%;
+    animation-delay: 4s;
+    animation-duration: 7s;
+}
+
+.flare-4 {
+    width: 120px;
+    height: 120px;
+    top: 80%;
+    left: 70%;
+    animation-delay: 1s;
+    animation-duration: 9s;
+}
+
+.flare-5 {
+    width: 80px;
+    height: 80px;
+    top: 50%;
+    left: 90%;
+    animation-delay: 3s;
+    animation-duration: 6s;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding: 40px;
+    gap: 60px;
+    animation: fadeIn 1.5s ease-in;
+}
+
+.profile {
+    flex: 1;
+    text-align: center;
+    animation: slideInLeft 2s ease-out;
+}
+
+.about-me {
+    flex: 1;
+    padding-left: 40px;
+    animation: slideInFromRight 0.8s ease-out 0.1s both;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #ffffff;
+    margin: 0 auto 30px;
+    animation: pulse 2s infinite;
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.1);
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile h1 {
+    margin: 20px 0;
+    font-size: 3em;
+    animation: slideIn 1s ease-out 0.5s both;
+    color: #ffffff;
+}
+
+.about-me h2 {
+    color: #ffffff;
+    font-size: 2.5em;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 10px;
+    animation: slideInFromRightFast 0.6s ease-out 0.2s both;
+}
+
+.about-me p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #cccccc;
+    animation: slideInFromRight 0.7s ease-out 0.4s both;
+}
+
+.about-me p:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.email, .linkedin, .github, .resume {
+    font-size: 1.2em;
+    margin: 0;
+    animation: fadeIn 1s ease-out 1.5s both;
+}
+
+.email a, .linkedin a, .github a, .resume a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 2em;
+    display: inline-block;
+}
+
+.email a:hover, .linkedin a:hover, .github a:hover, .resume a:hover {
+    color: #cccccc;
+    transform: scale(1.1);
+}
+
+.linkedin i, .email i, .github i, .resume i {
+    transition: transform 0.3s ease;
+}
+
+.linkedin a:hover i, .email a:hover i, .github a:hover i, .resume a:hover i {
+    transform: rotate(5deg);
+}
+
+.projects-section {
+    padding: 80px 40px;
+    animation: slideUp 1s ease-out;
+}
+
+.projects {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.projects h2 {
+    color: #ffffff;
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    text-align: center;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 15px;
+    animation: slideInFromRightFast 1.2s ease-out 0.2s both;
+}
+
+.project {
+    background-color: #1a1a1a;
+    padding: 30px;
+    margin: 25px 0;
+    border-radius: 15px;
+    border-left: 5px solid #ffffff;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.6s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.project.animate {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.project:hover {
+    transform: translateY(-8px);
+    background-color: #333333;
+}
+
+.project-preview {
+    flex: 0 0 200px;
+    height: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #ffffff;
+}
+
+.project-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project:hover .project-preview img {
+    transform: scale(1.05);
+}
+
+.project-content {
+    flex: 1;
+}
+
+.project h3 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.project h3 a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.project h3 a:hover {
+    color: #cccccc;
+    text-decoration: underline;
+}
+
+.project h3 em {
+    color: #cccccc;
+    font-style: italic;
+}
+
+.project p {
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100vw);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRightFast {
+    from {
+        transform: translateX(100vw);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.3;
+    }
+    25% {
+        transform: translateY(-20px) scale(1.1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(-10px) scale(0.9);
+        opacity: 0.4;
+    }
+    75% {
+        transform: translateY(-30px) scale(1.05);
+        opacity: 0.6;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        gap: 40px;
+    }
+    
+    .about-me {
+        padding-left: 0;
+    }
+    
+    .profile h1 {
+        font-size: 2.5em;
+    }
+    
+    .about-me h2 {
+        font-size: 2em;
+    }
+    
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .projects-section {
+        padding: 40px 20px;
+    }
+    
+    .projects {
+        width: 95%;
+    }
+    
+    .project {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .project-preview {
+        flex: none;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    /* Smaller flares on mobile */
+    .flare-1, .flare-2 {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .flare-3, .flare-4, .flare-5 {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile h1 {
+        font-size: 2em;
+    }
+    
+    .about-me h2 {
+        font-size: 1.8em;
+    }
+    
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .social-links {
+        gap: 15px;
+    }
+    
+    .email a, .linkedin a, .github a, .resume a {
+        font-size: 1.5em;
+    }
+}
